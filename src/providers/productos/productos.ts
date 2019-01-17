@@ -23,8 +23,10 @@ export class ProductosProvider {
 
   cargar_todos(){
 
-    let ulr = URL_SERVICIOS+"productos/todos/"+this.pagina;
-    this.http.get( ulr ).map( resp => resp.json() ).subscribe( data => {
+    let promesa = new Promise( ( resolve, reject ) => {
+
+      let ulr = URL_SERVICIOS+"productos/todos/"+this.pagina;
+      this.http.get( ulr ).map( resp => resp.json() ).subscribe( data => {
 
       console.log( data );
 
@@ -32,12 +34,32 @@ export class ProductosProvider {
         //aqui hay un error un problema mi hermano...
 
       }else{
-        this.productos.push( ...data.productos );
+        let nuevaData = this.agrupar( data.productos, 2 );
+
+
+        this.productos.push( ...nuevaData );
         this.pagina +=1;
       }
 
+      resolve();
+
     });
 
+    });
+
+    return promesa;
+  }
+
+  private agrupar( arr:any, tamano:number ) {
+    let nuevoArreglo = [];
+
+    for (let i = 0; i < arr.length; i+=tamano) {
+      nuevoArreglo.push( arr.slice(i, i+tamano) );
+    }
+
+    console.log(nuevoArreglo);
+
+    return nuevoArreglo;
   }
 
 }

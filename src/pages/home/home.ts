@@ -12,4 +12,13 @@ export class HomePage {
 
   }
 
+  public siguiente_pagina( infiniteScroll ){
+
+    this._ps.cargar_todos().then(()=>{
+
+      infiniteScroll.complete();
+
+    });
+  }
+
 }
