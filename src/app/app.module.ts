@@ -8,6 +8,10 @@ import { HttpModule } from "@angular/http";
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 
+//importando de pipes
+
+import { ImagenPipe } from "../pipes/imagen/imagen";
+
 //importado de los servicios
 
 import { CarritoProvider, UsuarioProvider, ProductosProvider } from "../providers/index.services";
@@ -15,6 +19,7 @@ import { CarritoProvider, UsuarioProvider, ProductosProvider } from "../provider
 @NgModule({
   declarations: [
     MyApp,
+    ImagenPipe,
     HomePage
   ],
   imports: [

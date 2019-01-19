@@ -50,6 +50,8 @@ export class ProductosProvider {
     return promesa;
   }
 
+  //ceracion de metodo para agrupar arrais de 2 en 2 el cual recibe 2 parametros para si ejecucion
+
   private agrupar( arr:any, tamano:number ) {
     let nuevoArreglo = [];
 
