@@ -10,7 +10,7 @@
   <ion-grid>
     <ion-row *ngFor="let pares of _ps.productos">
       <ion-col *ngFor="let item of pares">
-        <img [src] = "item.codigo | imagen">
+        <img [src] = "item.codigo | imagen" [navParams]="{ producto: item }" [navPush]="productoPage">
         <p>
           {{ item.producto }}
           <br>

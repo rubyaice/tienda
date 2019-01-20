@@ -16,10 +16,22 @@ import { ImagenPipe } from "../pipes/imagen/imagen";
 
 import { CarritoProvider, UsuarioProvider, ProductosProvider } from "../providers/index.services";
 
+//importe d elas paginas de la app
+
+import { CarritoPage, CategoriasPage, LoginPage, OrdenesDetallePage, OrdenesPage, PorCategoriasPage, ProductoPage, TabsPage } from "../pages/index.paginas";
+
 @NgModule({
   declarations: [
     MyApp,
     ImagenPipe,
+    CarritoPage,
+    CategoriasPage,
+    LoginPage,
+    OrdenesDetallePage,
+    OrdenesPage,
+    PorCategoriasPage,
+    ProductoPage,
+    TabsPage,
     HomePage
   ],
   imports: [
@@ -31,6 +43,14 @@ import { CarritoProvider, UsuarioProvider, ProductosProvider } from "../provider
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
+    CarritoPage,
+    CategoriasPage,
+    LoginPage,
+    OrdenesDetallePage,
+    OrdenesPage,
+    PorCategoriasPage,
+    ProductoPage,
+    TabsPage,
     HomePage
   ],
   providers: [
