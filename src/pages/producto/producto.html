@@ -12,7 +12,27 @@
 
 </ion-header>
 
-
 <ion-content>
+
+    <img [src]="producto.codigo | imagen" alt="">
+
+    <div padding>
+      <h5>{{ producto.producto }}</h5>
+      <p>
+          <strong>Precio:</strong>{{ producto.precio_compra | currency:'USD':true }}
+      </p>
+
+      <p>
+        {{ producto.descripcion }}
+        <br><br>
+        {{ producto.proveedor }}
+      </p>
+
+    </div>
+
+<button ion-button block icon-left>
+  <ion-icon name="cart"></ion-icon>
+  Agregar al Carrito
+</button>
 
 </ion-content>
