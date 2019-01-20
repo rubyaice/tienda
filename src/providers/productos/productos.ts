@@ -15,12 +15,55 @@ export class ProductosProvider {
 
   pagina:number = 0;
   productos: any[] = [];
+  lineas:any[] = [];
+  por_categoria: any[] = [];
 
   constructor(public http: Http) {
     //console.log('Hello ProductosProvider Provider');
     this.cargar_todos();
+    this.cargar_lineas();
   }
 
+  //cargar la lista de categorias
+
+  cargar_lineas(){
+
+    let url = URL_SERVICIOS+"lineas";
+
+    this.http.get( url ).map( resp => resp.json()).subscribe( data => {
+
+      if (data.error) {
+        //aqui hay un problema mi hermano
+      }else{
+
+       this.lineas = data.lineas;
+       console.log(this.lineas);
+      }
+
+    });
+
+  }
+
+  //cargar productos por categoria vista
+
+  cargar_por_categoria( categoria:number ){
+
+    let url = URL_SERVICIOS+"productos/por_tipo/"+categoria;
+
+    this.http.get( url ).map( resp => resp.json() ).subscribe( data => {
+
+      if (data.error) {
+        //aqui hay un problema mi hermano
+      } else {
+        console.log(data.productos);
+        this.por_categoria = data.productos;
+      }
+
+    });
+
+  }
+
+  //cargar toos los procductos para la pagina del home
   cargar_todos(){
 
     let promesa = new Promise( ( resolve, reject ) => {
