@@ -31,8 +31,8 @@ export class CarritoProvider {
 
       this.alertCtrl.create({
 
-        title:"El Item Existe",
-        subTitle: item_parametro.producto+", ya esta en el carrito de compras",
+        title:"El Item ya Existe!!",
+        subTitle: item_parametro.producto+", ya esta en su carrito de compras",
         buttons:["Aceptar"]
 
       }).present();
